@@ -41,7 +41,6 @@
         UIColor *color = [UIColor colorWithRed:254/255.0 green:40/255.0 blue:69/255.0 alpha:1];
         [color set];
         //创建path
-        //rect四个值分别为（x、y、矩形长，矩形宽）
         float X1= [arr[0] floatValue] /4.8 ;
         float X2= [arr[1] floatValue] /4.8;
         UIBezierPath* path = [UIBezierPath bezierPath];
@@ -57,7 +56,6 @@
         UIColor *color = [UIColor colorWithRed:0/255.0 green:149/255.0 blue:239/255.0 alpha:1];
         [color set];
         //创建path
-        //rect四个值分别为（x、y、矩形长，矩形宽）
         float X1= [arr[0] floatValue] /4.8 ;
         float X2= [arr[1] floatValue] /4.8;
         UIBezierPath* path = [UIBezierPath bezierPath];
@@ -72,7 +70,6 @@
         UIColor *color = [UIColor colorWithRed:0/255.0 green:210/255.0 blue:122/255.0 alpha:1];
         [color set];
         //创建path
-        //rect四个值分别为（x、y、矩形长，矩形宽）
         float X1= [arr[0] floatValue] /4.8 ;
         float X2= [arr[1] floatValue] /4.8;
         UIBezierPath* path = [UIBezierPath bezierPath];
