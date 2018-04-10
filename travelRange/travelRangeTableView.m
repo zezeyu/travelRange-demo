@@ -9,7 +9,7 @@
 #import "travelRangeTableView.h"
 #import "dayTravelRangeView.h"
 
-#define Spacing 15.f // 间距 也是label高度
+#define Spacing 10.f // 间距 也是label高度
 #define kselfWidth self.frame.size.width
 
 @implementation travelRangeTableView
@@ -63,12 +63,12 @@
         [self addSubview:day];
     }
     ///用这个view玩个简单的动画效果
-    UIView * animateView = [[UIView alloc]initWithFrame:CGRectMake(62, 0, kselfWidth - 63, 223)];
+    UIView * animateView = [[UIView alloc]initWithFrame:CGRectMake(62, 0, kselfWidth - 63, 155)];
     animateView.backgroundColor = [UIColor whiteColor];
     [self addSubview:animateView];
 
     [UIView animateWithDuration:1 animations:^{
-        animateView.frame = CGRectMake(70 + (kselfWidth - 63), 0, 0, 223);
+        animateView.frame = CGRectMake(70 + (kselfWidth - 63), 0, 0, 155);
     } completion:^(BOOL finished) {
         if (finished) {
 
