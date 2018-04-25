@@ -13,7 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="travelRangeTableView">
-            <rect key="frame" x="0.0" y="0.0" width="503" height="364"/>
+            <rect key="frame" x="0.0" y="0.0" width="503" height="245"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12-12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vf4-qw-NNt">
@@ -344,7 +344,7 @@
                 <outletCollection property="dayLabelArray" destination="M7g-fG-m2M" id="cnd-SP-Ks9"/>
                 <outletCollection property="dayLabelArray" destination="PYY-ef-igN" id="p4N-la-cBK"/>
             </connections>
-            <point key="canvasLocation" x="2740.5" y="-10"/>
+            <point key="canvasLocation" x="2740.5" y="-69.5"/>
         </view>
     </objects>
 </document>

@@ -11,7 +11,8 @@
 
 #define Spacing 10.f // 间距 也是label高度
 #define kselfWidth self.frame.size.width
-
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
 @implementation travelRangeTableView
 
 
@@ -44,37 +45,36 @@
 
 -(void)layoutSubviews{
     [super layoutSubviews];
-    ///7天的日期
-    NSDictionary * dics = [self requestDataWithName:@"data"];
-    for (int i = 0; i < [self getBefore_7_date].count; i++) {
-        UILabel * label = (UILabel *)[self viewWithTag:16-i];
-        label.text = [self getBefore_7_date][i];
-    }
-    
-    ///每天的每分钟行驶速度
-    for (int i = 0; i < 7; i++) {
-        dayTravelRangeView * day = [[dayTravelRangeView alloc]initWithFrame:CGRectMake(62, Spacing + Spacing*2 * i, kselfWidth - 63, Spacing)];
-        dayTravelRangeModel * model = [[dayTravelRangeModel alloc]init];
-        model.redArray = dics[@"data"][i][@"red"];
-        model.blueArray = dics[@"data"][i][@"blue"];
-        model.greenArray = dics[@"data"][i][@"green"];
-        day.model = model;
-        day.backgroundColor = [UIColor groupTableViewBackgroundColor];
-        [self addSubview:day];
-    }
-    ///用这个view玩个简单的动画效果
-    UIView * animateView = [[UIView alloc]initWithFrame:CGRectMake(62, 0, kselfWidth - 63, 155)];
-    animateView.backgroundColor = [UIColor whiteColor];
-    [self addSubview:animateView];
+}
 
-    [UIView animateWithDuration:1 animations:^{
-        animateView.frame = CGRectMake(70 + (kselfWidth - 63), 0, 0, 155);
-    } completion:^(BOOL finished) {
-        if (finished) {
-
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self) {
+        NSDictionary * dics = [self requestDataWithName:@"data"];
+        for (int i = 0; i < [self getBefore_7_date].count; i++) {
+            UILabel * label = (UILabel *)[self viewWithTag:16-i];
+            label.text = [self getBefore_7_date][i];
         }
-    }];
+        
+        ///每天的每分钟行驶速度
+        for (int i = 0; i < 7; i++) {
+            dayTravelRangeView * day = [[dayTravelRangeView alloc]initWithFrame:CGRectMake(62, Spacing + Spacing*2 * i, kScreenWidth - 63 - 20, Spacing)];
+            dayTravelRangeModel * model = [[dayTravelRangeModel alloc]init];
+            model.redArray = dics[@"data"][i][@"red"];
+            model.blueArray = dics[@"data"][i][@"blue"];
+            model.greenArray = dics[@"data"][i][@"green"];
+            day.model = model;
+            day.backgroundColor = [UIColor groupTableViewBackgroundColor];
+            [self addSubview:day];
+        }
+    }
+    return self;
+}
 
+-(void)awakeFromNib{
+    [super awakeFromNib];
+    
 }
 
 - (id)requestDataWithName:(NSString *)jsonName{
